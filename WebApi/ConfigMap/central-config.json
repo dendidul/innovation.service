@@ -1,0 +1,27 @@
+{
+  "OAuth": {
+    "Domain": "https://portaldev2.astra-honda.com/oauth2/",
+    "Audience": "https://portal.astra-honda.com/b2e"
+  },
+  "OpenTelemetry": {
+    "Tracing": {
+      "Jaeger": {
+        "AgentHost": "localhost",
+        "AgentPort": 6831
+      }
+    },
+    "IncludeHttpRequest": true,
+    "IncludeHttpResponse": true,
+    "IncludeException": true,
+    "IncludeSqlQuery": true,
+    "ExportProcessorType": "Batch"
+  },
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft.AspNetCore": "Warning"
+    }
+  },
+  "AllowedHosts": "*",
+
+}

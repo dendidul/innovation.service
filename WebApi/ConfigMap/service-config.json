@@ -1,0 +1,53 @@
+{
+  "ServiceName": {
+    "Id": "ahmhrmes056",
+    "Name": "Innovation Service",
+    "Version": "1.0.0",
+    "Description": "Service for Innovation Service"
+  },
+
+  "Serilog": {
+    "MinimumLevel": "Information",
+    "Override": {
+      "Microsoft.AspNetCore": "Warning"
+    },
+    "Workflow": {
+      "Url": "https://t13106.astra-honda.com/wfs/",
+      "Innovation": {
+        "WorkflowId": "WF_AHMHRIRS021",
+        "AppId": "AHMIC",
+        "FormId": "AHMHRIRS021"
+
+      }
+    },
+    "WriteTo": [
+      {
+        "Name": "Console",
+        "Args": {
+          "outputTemplate": "{Timestamp:HH:mm:ss.fff zzz} [{Level}] {Message}{NewLine}{Exception}"
+        }
+      },
+      {
+        "Name": "File",
+        "Args": {
+          "path": "D:\\AppsLogs\\AHMHRNTM029-.log",
+          "formatter": "Serilog.Formatting.Json.JsonFormatter, Serilog",
+          "fileSizeLimitBytes": 104857600,
+          "rollOnFileSizeLimit": true,
+          "rollingInterval": "Day"
+        }
+      }
+    ],
+    "Enrich": [
+      "WithSpan",
+      "WithHttpHeader",
+      "WithMemoryUsage",
+      "WithAssemblyName",
+      "WithAssemblyVersion",
+      "FromLogContext",
+      "WithMachineName",
+      "WithProcessId",
+      "WithThreadId"
+    ]
+  }
+}

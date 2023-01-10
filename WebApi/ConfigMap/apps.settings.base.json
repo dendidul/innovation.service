@@ -1,0 +1,74 @@
+{
+  "ServiceName": {
+    "Id": "AHMHRMES036",
+    "Name": "Innovation Service",
+    "Version": "1.0.0",
+    "Description": "Service for Innovation Service"
+  },
+  "OpenTelemetry": {
+    "Tracing": {
+      "Jaeger": {
+        "AgentHost": "localhost",
+        "AgentPort": 6831
+      }
+    },
+    "IncludeHttpRequest": true,
+    "IncludeHttpResponse": true,
+    "IncludeException": true,
+    "IncludeSqlQuery": true,
+    "ExportProcessorType": "Batch"
+  },
+
+  "Workflow": {
+    "Url": "https://t13106.astra-honda.com/wfs/",
+    "Innovation": {
+      "WorkflowId": "WF_AHMHRIRS021",
+      "AppId": "AHMIC",
+      "FormId": "AHMHRIRS021"
+
+    }
+  },
+
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft.AspNetCore": "Warning"
+    }
+  },
+  "AllowedHosts": "*",
+  "Serilog": {
+    "MinimumLevel": "Information",
+    "Override": {
+      "Microsoft.AspNetCore": "Warning"
+    },
+    "WriteTo": [
+      {
+        "Name": "Console",
+        "Args": {
+          "outputTemplate": "{Timestamp:HH:mm:ss.fff zzz} [{Level}] {Message}{NewLine}{Exception}"
+        }
+      },
+      {
+        "Name": "File",
+        "Args": {
+          "path": "D:\\AppsLogs\\AHMITNMS001-.log",
+          "formatter": "Serilog.Formatting.Json.JsonFormatter, Serilog",
+          "fileSizeLimitBytes": 104857600,
+          "rollOnFileSizeLimit": true,
+          "rollingInterval": "Day"
+        }
+      }
+    ],
+    "Enrich": [
+      "WithSpan",
+      "WithHttpHeader",
+      "WithMemoryUsage",
+      "WithAssemblyName",
+      "WithAssemblyVersion",
+      "FromLogContext",
+      "WithMachineName",
+      "WithProcessId",
+      "WithThreadId"
+    ]
+  }
+}

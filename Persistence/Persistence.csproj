@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <ParentFolderName>Infrastructure</ParentFolderName>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <RootNamespace>$(ParentFolderName).$(MSBuildProjectName.Replace(" ", "_"))</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AHM.Domain.Ahmhrirs" Version="2.0.4" />
+    <PackageReference Include="AHM.Domain.Ahmhrmtn" Version="2.0.0" />
+    <PackageReference Include="AHM.Domain.Ahmhrntm" Version="2.0.0" />
+    <PackageReference Include="AHM.Domain.Ahmhrtxn" Version="2.0.0" />
+    <PackageReference Include="AHM.Domain.Ahmitb2e" Version="2.0.1" />
+    <PackageReference Include="AHM.Domain.Ahmitwfs" Version="2.0.7" />
+    <PackageReference Include="AHM.Persistence.Ahmhrirs" Version="2.0.0" />
+    <PackageReference Include="AHM.Persistence.Ahmhrtmo" Version="2.0.0" />
+    <PackageReference Include="AHM.Persistence.Ahmitb2e" Version="2.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.6" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="6.0.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="6.0.0" />
+    <PackageReference Include="Oracle.EntityFrameworkCore" Version="6.21.61" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Application\Application.csproj" />
+  </ItemGroup>
+
+</Project>
